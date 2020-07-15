@@ -39,5 +39,15 @@ export const Container = styled.header`
         }
       }
     }
+
+    button {
+      color: #444;
+      background: transparent;
+      border: 0;
+
+      &:hover {
+        color: #d60701;
+      }
+    }
   }
 `;
