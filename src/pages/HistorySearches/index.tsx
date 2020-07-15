@@ -41,49 +41,45 @@ const HistorySearches: React.FC = () => {
     <Container>
       <h1>HistorySearches</h1>
 
-      {artists && (
-        <List>
-          <p>Artistas</p>
+      <List>
+        {artists.length > 0 && <p>Artistas</p>}
 
-          {artists.map(item => (
-            <a
-              key={uuid()}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <strong>{item.name}</strong>
-                <p>{item.artist}</p>
-              </div>
+        {artists.map(item => (
+          <a
+            key={uuid()}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <strong>{item.name}</strong>
+              <p>{item.artist}</p>
+            </div>
 
-              <FiChevronRight size={20} />
-            </a>
-          ))}
-        </List>
-      )}
+            <FiChevronRight size={20} />
+          </a>
+        ))}
+      </List>
 
-      {albums && (
-        <List>
-          <p>Álbuns</p>
+      <List>
+        {albums.length > 0 && <p>Álbuns</p>}
 
-          {albums.map(item => (
-            <a
-              key={uuid()}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <strong>{item.name}</strong>
-                <p>{item.artist}</p>
-              </div>
+        {albums.map(item => (
+          <a
+            key={uuid()}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <strong>{item.name}</strong>
+              <p>{item.artist}</p>
+            </div>
 
-              <FiChevronRight size={20} />
-            </a>
-          ))}
-        </List>
-      )}
+            <FiChevronRight size={20} />
+          </a>
+        ))}
+      </List>
     </Container>
   );
 };

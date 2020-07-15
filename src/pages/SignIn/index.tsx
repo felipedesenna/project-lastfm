@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -22,6 +22,7 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
+  const history = useHistory();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -58,6 +59,8 @@ const SignIn: React.FC = () => {
         } else {
           window.confirm('Usuário não cadastrado!');
         }
+
+        history.push('/historysearches');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -66,7 +69,7 @@ const SignIn: React.FC = () => {
         }
       }
     },
-    [signIn],
+    [signIn, history],
   );
 
   return (
